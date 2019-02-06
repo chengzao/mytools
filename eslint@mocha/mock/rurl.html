@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+    <script src="./../node_modules/axios/dist/axios.js"></script>
+</body>
+<script>
+    Mock.mock(/\.json/, {
+        "list|1-10": [{
+            "id|+1": 1,
+            //属性 guid 是唯一机器码
+            "guid": "@guid",
+            //属性 id 是随机id
+            "id": "@id",
+            //属性 title 是一个随机长度的标题
+            "title": "@title()",
+            //属性 paragraph 是一个随机长度的段落
+            "paragraph": "@cparagraph",
+            //属性 image 是一个随机图片 参数分别为size, background, text
+            "image": "@image('200x100', '#4A7BF7', 'Hello')",
+            //属性 address 是一个随机地址
+            "address": "@county(true)",
+            //属性 date 是一个yyyy-MM-dd 的随机日期
+            "date": "@date(\"yyyy-MM-dd\")",
+            //属性 time 是一个 size, background, text 的随机时间
+            "time": "@time(\"HH:mm:ss\")",
+            //属性 url 是一个随机的url
+            "url": "@url",
+            //属性 email 是一个随机email
+            "email": "@email",
+            //属性 ip 是一个随机ip
+            "ip": "@ip",
+            //属性 regexp 是一个正则表达式匹配到的值 如aA1
+            "regexp": /[a-z][A-Z][0-9]/,
+        }]
+    });
+    // $.ajax({
+    //     url: 'hello.json',
+    //     dataType: 'json'
+    // }).done(function (data, status, jqXHR) {
+    //     $('<pre>').text(JSON.stringify(data, null, 4))
+    //         .appendTo('body')
+    // })
+
+    axios.get('hello.json', {
+            responseType: 'json'
+        })
+        .then(function (response) {
+            console.log('step1 =>', response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+</script>
+
+</html>

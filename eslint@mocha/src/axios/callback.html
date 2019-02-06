@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>callback</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function foo(response) {
+        var meta = response.meta;
+        var data = response.data;
+        console.log(meta);
+        console.log(data);
+    }
+
+    var script = document.createElement('script');
+    script.src = 'https://api.github.com?callback=foo';
+
+    document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+</script>
+
+</html>

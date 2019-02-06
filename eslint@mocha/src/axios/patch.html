@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>axios get</title>
+</head>
+
+<body>
+    <p>Open up your browser's console.</p>
+</body>
+<script src="../../node_modules/axios/dist/axios.js"></script>
+<script>
+    // 首先： 项目根目录运行 npm run dserver
+    let baseUrl = "http://127.0.0.1:3004/list/2";
+    {
+        let _obj = {"title": "123","desc": "test","tag": "常是价六","views": 4178};
+        axios.patch(baseUrl,_obj)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+</script>
+
+</html>

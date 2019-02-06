@@ -1,0 +1,96 @@
+$a:32;
+$border:16;
+html,body{
+  overflow-x: hidden;
+
+  margin:0 auto;
+  padding:0;
+  font-size: (16rem/16);
+  background-color: #e6e6e6;
+
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+input,input[type=submit],input[type=datetime],input[type=reset],input[type=button],input[type=text]{-webkit-appearance:none;}
+
+h1,ol,ul,li,p,h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}
+a{
+  display: block;
+
+  text-decoration: none;
+}
+.l{
+  float: left;
+}
+.r{
+  float: right;
+}
+
+.hide{
+  display: none;
+}
+
+.clearfix::after,
+.clearfix::before {
+    display: table;
+    clear: both;
+    overflow: hidden;
+
+    height: 0;
+
+    content: '';
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.hairlines-s{
+    position: relative;
+    border:none;
+}
+.hairlines-s:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    background: #000;
+    width: 100%;
+    height: px2rem(1rem);
+    -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+}
+
+.hairlines{
+    position: relative;
+    margin-bottom: px2rem(20rem);
+    border:none;
+}
+.hairlines:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: px2rem(1rem) solid #000;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+}
+
+@function px2rem($n) {
+  @return $n/$a;
+}
+
+@function p2r($n,$r:$a){
+  @return $n/$r +rem;
+}
+
+@import "./_font";

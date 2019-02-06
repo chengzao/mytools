@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+</body>
+<script>
+    // Mock.mock( rurl, rtype, function(options) )
+    Mock.mock(/\.json/, 'get', function (options) {
+        return options.type
+    })
+    Mock.mock(/\.json/, 'post', function (options) {
+
+        return options.type
+    })
+
+    // Mock.setup( settings ) 配置拦截 Ajax 请求时的行为。支持的配置项有：timeout
+    // Mock.setup({
+    //         timeout: 2000
+    //     })
+    Mock.setup({
+        timeout: '200-600'
+    })
+    $.ajax({
+        url: 'hello.json',
+        type: 'get',
+        dataType: 'json'
+    }).done(function (data, status, jqXHR) {
+
+        $('<pre>').text(JSON.stringify(data, null, 4))
+            .appendTo('body')
+    })
+
+    $.ajax({
+        url: 'hello.json',
+        type: 'post',
+        dataType: 'json'
+    }).done(function (data, status, jqXHR) {
+        $('<pre>').text(JSON.stringify(data, null, 4))
+            .appendTo('body')
+    })
+</script>
+
+</html>

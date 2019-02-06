@@ -1,0 +1,21 @@
+@import "_reset";
+$base:14;
+@function px2rem($n){
+	@return $n/$base + rem;
+}
+.section{
+	position: absolute; top: 2%; width: 100%; text-align: center;
+}
+.section a{
+	color: #fff;
+}
+.time{
+	position: fixed; bottom:2%; right:2%;
+	font-size: (32rem/16);
+}
+p{
+	display: flex;
+	align-items: center;
+	background: url(../img/a.jpeg);
+	font-size: px2rem($base);
+}

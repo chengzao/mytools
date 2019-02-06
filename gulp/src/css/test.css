@@ -1,0 +1,8 @@
+#box{
+    background: url('../img/a.jpeg');
+    font-size: 18px;
+}
+img{
+    width: 100px;
+    height: auto;
+}

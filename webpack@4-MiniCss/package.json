@@ -1,0 +1,52 @@
+{
+    "name": "webpack-4",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "chengzao",
+    "license": "MIT",
+    "scripts": {
+        "dev": "webpack-dev-server",
+        "build:dev": "webpack --config webpack.config.js --mode development --color --progress",
+        "build:pro": "webpack --config webpack.config.js --mode production --color --progress"
+    },
+    "devDependencies": {
+        "autoprefixer": "^8.4.1",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.4",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-env": "^1.6.1",
+        "clean-webpack-plugin": "^0.1.19",
+        "copy-webpack-plugin": "^4.5.1",
+        "css-loader": "^0.28.11",
+        "file-loader": "^1.1.11",
+        "happypack": "^5.0.0",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^3.2.0",
+        "image-webpack-loader": "^4.2.0",
+        "mini-css-extract-plugin": "^0.4.0",
+        "node-sass": "^4.9.0",
+        "optimize-css-assets-webpack-plugin": "^4.0.1",
+        "postcss-loader": "^2.1.4",
+        "precss": "^3.1.2",
+        "purify-css": "^1.2.5",
+        "purifycss-webpack": "^0.7.0",
+        "sass-loader": "^7.0.1",
+        "style-loader": "^0.21.0",
+        "uglifyjs-webpack-plugin": "^1.2.5",
+        "url-loader": "^1.0.1",
+        "webpack": "^4.6.0",
+        "webpack-cli": "^2.0.15",
+        "webpack-dev-server": "^3.1.3",
+        "webpack-merge": "^4.1.2"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ],
+    "dependencies": {
+        "babel-runtime": "^6.26.0",
+        "inline-html-withimg-loader": "^1.0.0",
+        "jquery": "^3.3.1"
+    }
+}

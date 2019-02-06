@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+    <p>This is a template html page!</p>
+    <h3><%= htmlWebpackPlugin.options.date %></h3>
+    <h3><%= htmlWebpackPlugin.options.userName %></h3>
+    <ul>
+        <% for ( var key in htmlWebpackPlugin ){ %>
+            <% if ( key == 'files' ) { %>
+                <h3>files</h3>
+                <% for( var f in htmlWebpackPlugin[key] ){ %>
+                    <li> <%= f %>, <%= htmlWebpackPlugin[key][f] %> </li>
+                    <% if ( f == 'chunks') { %>
+                        <p><%= JSON.stringify( htmlWebpackPlugin[key][f] ) %></p>
+                    <% } %>
+                <% } %>
+            <% } else { %>
+                <h3>options</h3>
+                <% for( var f in htmlWebpackPlugin[key] ){ %>
+                    <li> <%= f %>, <%= htmlWebpackPlugin[key][f] %> </li>
+                <% } %>
+            <% } %>
+        <% } %>
+    </ul>
+</body>
+</html>

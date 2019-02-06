@@ -1,0 +1,29 @@
+{
+    "name": "gulp_ts",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "gulp": "gulp"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-es2015": "^6.24.1",
+        "babelify": "^8.0.0",
+        "browserify": "^15.2.0",
+        "gulp": "^3.9.1",
+        "gulp-sourcemaps": "^2.6.3",
+        "gulp-typescript": "^4.0.0-alpha.1",
+        "gulp-uglify": "^3.0.0",
+        "gulp-util": "^3.0.8",
+        "tsify": "^3.0.4",
+        "typescript": "^2.6.2",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0",
+        "watchify": "^3.9.0"
+    }
+}

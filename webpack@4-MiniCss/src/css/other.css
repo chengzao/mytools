@@ -1,0 +1,9 @@
+body{
+    background-color:pink;
+    transition: all ease 1s;
+}
+img{
+    width: 100px;
+    height: 100px;
+    border: 2px black solid;
+}
