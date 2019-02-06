@@ -1,0 +1,11 @@
+**/node_modules/*
+**/.sass-cache
+**/.cache
+**/.idea
+**/.DS_Store
+**/.vscode
+**/dist
+debug.log
+**/output
+**/package-lock.json
+gulp/build
