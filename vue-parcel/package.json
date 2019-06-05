@@ -1,0 +1,34 @@
+{
+  "name": "vue-parcel-demo",
+  "version": "1.0.0",
+  "description": "A Vue demo including Code Splitting, Hot Reloading, ESLint, Vuex, Vue Router and Less.",
+  "scripts": {
+    "dev": "parcel ./public/index.html --open",
+    "build": "parcel build ./public/index.html NODE_ENV=production --no-source-maps --public-url ./public --out-dir ./dist",
+    "lint": "eslint --ext .js,.vue src"
+  },
+  "keywords": [
+    "Vue",
+    "Parcel"
+  ],
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@vue/component-compiler-utils": "^3.0.0",
+    "autoprefixer": "^9.6.0",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-vue": "^2.0.2",
+    "eslint": "^5.16.0",
+    "less": "^3.9.0",
+    "parcel-bundler": "^1.12.3",
+    "postcss-modules": "^1.4.1",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
