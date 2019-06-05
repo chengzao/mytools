@@ -1,7 +1,0 @@
-.test {
-    /* 引用图像文件 */
-    background: url('../images/parcel.png');
-    width: 100px;
-    height: 100px;
-    border: 1px solid #000;
-}
