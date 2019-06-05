@@ -1,0 +1,16 @@
+{
+  "name": "scion-cli",
+  "version": "0.0.5",
+  "description": "A simple CLI for creating your projects",
+  "main": "index.js",
+  "bin": {
+    "scion": "bin/scion"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.9.0"
+  }
+}
