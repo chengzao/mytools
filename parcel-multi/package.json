@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf ./dist && parcel build ./page/index.html",
-    "start": "parcel ./page/index.html"
+    "build": "rimraf ./dist && parcel build ./pages/*.html",
+    "start": "parcel ./pages/*.html "
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,8 @@
   "devDependencies": {
     "parcel-bundler": "^1.12.3",
     "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "snabbdom": "^0.7.3"
   }
 }
