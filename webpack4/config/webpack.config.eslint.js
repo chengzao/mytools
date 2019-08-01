@@ -5,7 +5,8 @@ const os = require("os"); // 获取cpu
 const happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
 
 // CSS单独提取出来加载
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const autoprefixer = require("autoprefixer");
 
 const webpackBase = require("./webpack.config.base");
 const webpackMerge = require("webpack-merge");
@@ -15,27 +16,27 @@ module.exports = webpackMerge(webpackBase, {
     module: {
         rules: [
             {
-                test: /\.css$/, // 解析css
-                // use: ['style-loader', 'css-loader'] // 从右向左解析
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: [{
-                        loader: "css-loader",
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
                         options: {
-                            url: false,
-                            minimize: true,
-                            sourceMap: true
+                            // only enable hot in development
+                            hmr: process.env.NODE_ENV === "development",
+                            // if hmr does not work, this is a forceful method.
+                            reloadAll: true
                         }
-                    }, "postcss-loader"]
-                }),
+                    },
+                    "happypack/loader?id=css"
+                ],
                 exclude: /node_modules/
             },
             {
                 test: /\.s[ac]ss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: "happypack/loader?id=css"
-                }),
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "happypack/loader?id=scss"
+                ],
                 exclude: /node_modules/
             },
             {
@@ -65,7 +66,7 @@ module.exports = webpackMerge(webpackBase, {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HappyPack({
-            id: "css",
+            id: "scss",
             verbose: true,
             threadPool: happyThreadPool,
             loaders: [
@@ -75,9 +76,32 @@ module.exports = webpackMerge(webpackBase, {
             ]
 
         }),
-        new ExtractTextPlugin({
-            filename: (getPath) => getPath("css/[name].css").replace("css/js", "css"),
-            allChunks: true
+        new HappyPack({
+            id: "css",
+            threadPool: happyThreadPool,
+            loaders: [
+                {
+                    loader: "css-loader",
+                    options: {
+                        minimize: true,
+                        sourceMap: false,
+                        url: false
+                    }
+                },
+                {
+                    loader: "postcss-loader",
+                    options: {
+                        plugins: (loader) => [
+                            autoprefixer()
+                        ],
+                        sourceMap: false
+                    }
+                }
+            ]
+        }),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css",
+            chunkFilename: "css/[id].css"
         })
     ],
     // 开发服务器配置

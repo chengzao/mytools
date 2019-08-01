@@ -5,7 +5,7 @@ let HtmlWebpackPlugin = require("html-webpack-plugin");
 // 拷贝静态资源
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 // 压缩JS
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+// const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 const HappyPack = require("happypack"); // 引入happypack
 const os = require("os"); // 获取cpu
@@ -182,10 +182,10 @@ module.exports = {
                 force: true
             }
         ]),
-        // 压缩代码并且进行没又实用代码的去除 tree shrinking
-        new UglifyJSPlugin({
-            parallel: true
-        }),
+        // // 压缩代码并且进行没又实用代码的去除 tree shrinking
+        // new UglifyJSPlugin({
+        //     parallel: true
+        // }),
         new webpack.BannerPlugin("Hello , I am webpack@4!")
     ]
 };
